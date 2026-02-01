@@ -1,6 +1,6 @@
 # MERN Stack Online IDE
 
-A full-featured online Integrated Development Environment (IDE) that supports JavaScript, Python, and Java code execution. Built with React, Node.js, Express, and MongoDB.
+A full-featured online Integrated Development Environment (IDE) that supports JavaScript, Python, C,C++ and Java code execution along with AI assistance. Built with React, Node.js, Express, and MongoDB.
 
 ## Features
 
@@ -14,34 +14,55 @@ A full-featured online Integrated Development Environment (IDE) that supports Ja
 - **Toast Notifications** - User feedback for all operations
 - **VS Code-like Layout** - Familiar interface with file explorer, editor, and output console
 
+### AI-Powered Coding Assistant (Ask AI)
+- Dedicated AI Sidebar (Copilot-style)
+- Chat-based interface fixed to the right side
+- Input box fixed at the bottom
+### AI understands:
+- Code explanations
+- Error explanations
+- Programming concepts
+- Code logic walkthroughs
+
+### AI Safety Rules
+- AI ONLY answers programming-related questions
+- Non-coding questions receive:
+```
+Sorry, I can only answer programming and coding-related questions.
+
+```
 ## Project Structure
 
 ```
 project/
 ├── backend/
 │   ├── models/
-│   │   ├── File.js           # File schema
-│   │   └── Workspace.js      # Workspace schema
+│   │   ├── File.js
+│   │   └── Workspace.js
 │   ├── routes/
-│   │   ├── fileRoutes.js     # File CRUD endpoints
-│   │   ├── workspaceRoutes.js # Workspace endpoints
-│   │   └── executeRoutes.js  # Code execution endpoint
+│   │   ├── fileRoutes.js
+│   │   ├── workspaceRoutes.js
+│   │   ├── executeRoutes.js
+│   │   └── aiRoutes.js
 │   ├── utils/
-│   │   └── codeExecutor.js   # Code execution logic with sandboxing
-│   ├── server.js             # Express server
+│   │   └── codeExecutor.js
+│   ├── server.js
 │   └── package.json
+│
 └── src/
     ├── components/
-    │   ├── FileExplorer.tsx  # File tree sidebar
-    │   ├── Editor.tsx        # Monaco editor wrapper
-    │   ├── OutputTerminal.tsx # Output display
-    │   ├── Toolbar.tsx       # Top toolbar
-    │   └── Toast.tsx         # Notification component
+    │   ├── FileExplorer.tsx
+    │   ├── Editor.tsx
+    │   ├── OutputTerminal.tsx
+    │   ├── Toolbar.tsx
+    │   ├── AISidebar.tsx
+    │   └── Toast.tsx
     ├── api/
-    │   └── index.ts          # API client
+    │   └── index.ts
     ├── types/
-    │   └── index.ts          # TypeScript types
-    └── App.tsx               # Main application
+    │   └── index.ts
+    └── App.tsx
+
 ```
 
 ## Setup Instructions
@@ -140,7 +161,9 @@ Open your browser to `http://localhost:5173` and:
 - 5-second timeout for both compilation and execution
 - Automatic class name extraction
 - Full compilation and runtime error handling
-
+### C/C++
+- Compiled using gcc/g++
+- Executed with `java` command
 ## Security Features
 
 - **VM2 Sandbox** for JavaScript execution
@@ -170,7 +193,33 @@ public class Main {
     }
 }
 ```
+### C
+```
+#include <stdio.h>
 
+int main() {
+    int a = 10, b = 5;
+    int sum = a + b;
+
+    printf("Sum of %d and %d is: %d\n", a, b, sum);
+    return 0;
+}
+
+```
+### C++
+```
+#include <iostream>
+using namespace std;
+
+int main() {
+    int a = 10, b = 5;
+    int sum = a + b;
+
+    cout << "Sum of " << a << " and " << b << " is: " << sum << endl;
+    return 0;
+}
+
+```
 ## API Endpoints
 
 ### Workspaces
@@ -186,6 +235,8 @@ public class Main {
 - `PUT /api/files/:id` - Update file
 - `DELETE /api/files/:id` - Delete file
 
+### AI chat API
+- `POST/api/ai/chat` - Ai for coding related questions
 ### Execution
 - `POST /api/execute` - Execute code
   ```json
@@ -223,6 +274,3 @@ public class Main {
 - Limited memory for JavaScript execution
 - Code runs in isolated environment without network access
 
-## License
-
-MIT License
