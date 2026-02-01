@@ -31,6 +31,9 @@ A full-featured online Integrated Development Environment (IDE) that supports Ja
 Sorry, I can only answer programming and coding-related questions.
 
 ```
+### How to get AI Groq API
+- Visit (https://console.groq.com/keys)
+- Click on ```CREATE API KEY```
 ## Project Structure
 
 ```
